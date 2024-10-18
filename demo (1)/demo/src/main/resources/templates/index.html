@@ -3,12 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Eventos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #1a1a1a, #333);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 50px;
+            perspective: 1000px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: #6200ea; /* Cor do botão */
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .card-panel:hover {
+            transform: scale(1.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        tr {
+            transition: background 0.3s;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <h1>Lista de Eventos</h1>
-    <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar evento</a></li>
+    <li>
+        <a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar evento</a>
+    </li>
     <div th:if="${mensagem}" class="card-panel teal lighten-2">
         <span class="white-text" th:text="${mensagem}"></span>
     </div>
@@ -36,5 +123,11 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    // Optional: Initialize Materialize components here if needed
+</script>
 </body>
 </html>
+
